@@ -1,0 +1,39 @@
+/* -------------------------
+:: utility Class
+---------------------------- */
+.mosh-pt-100 {
+    padding-top: 100px;
+}
+.mosh-pt-80 {
+    padding-top: 80px;
+}
+.mosh-pt-70 {
+    padding-top: 70px;
+}
+.mosh-pt-60 {
+    padding-top: 60px;
+}
+.mosh-pt-50 {
+    padding-top: 50px;
+}
+.mosh-pt-30 {
+    padding-top: 30px;
+}
+.mosh-pb-100 {
+    padding-bottom: 100px;
+}
+.mosh-pb-80 {
+    padding-bottom: 80px;
+}
+.mosh-pb-70 {
+    padding-bottom: 70px;
+}
+.mosh-pb-60 {
+    padding-bottom: 60px;
+}
+.mosh-pb-50 {
+    padding-bottom: 50px;
+}
+.mosh-pb-30 {
+    padding-bottom: 30px;
+}
