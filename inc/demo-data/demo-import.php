@@ -47,6 +47,9 @@ function mosh_after_import_setup() {
 	update_option( 'page_on_front', $front_page_id->ID );
 	update_option( 'page_for_posts', $blog_page_id->ID );
 
+	// Add an option to check after import is done
+	update_option( 'mosh-import-data', true );
+
 }
 add_action( 'pt-ocdi/after_import', 'mosh_after_import_setup' );
 
