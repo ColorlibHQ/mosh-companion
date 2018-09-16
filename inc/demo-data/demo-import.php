@@ -80,7 +80,3 @@ function mosh_demo_import_custom_scripts(){
 	
 }
 add_action( 'admin_enqueue_scripts', 'mosh_demo_import_custom_scripts' );
-
-
-
-?>
