@@ -97,10 +97,7 @@ class Mosh_Counter extends Widget_Base {
 			'color_number', [
 				'label' => __( 'Number Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
+                'default' => '#404551',    
 				'selectors' => [
                     '{{WRAPPER}} .counter-area h3'      => 'color: {{VALUE}};',
 					'{{WRAPPER}} .counter-area h3 span' => 'color: {{VALUE}};',
@@ -110,7 +107,6 @@ class Mosh_Counter extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'typography_number',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .counter-area h3',
 			]
 		);
@@ -134,10 +130,7 @@ class Mosh_Counter extends Widget_Base {
             'color_title', [
                 'label'  => __( 'Title Color', 'mosh-companion' ),
                 'type'   => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type'  => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#404551',
                 'selectors' => [
                     '{{WRAPPER}} .cool-facts-content p' => 'color: {{VALUE}};',
                 ],
@@ -146,7 +139,6 @@ class Mosh_Counter extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name'      => 'typography_title',
-                'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
                 'selector'  => '{{WRAPPER}} .cool-facts-content p',
             ]
         );

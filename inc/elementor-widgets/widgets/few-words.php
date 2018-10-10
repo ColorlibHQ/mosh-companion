@@ -56,6 +56,7 @@ class Mosh_Few_Words extends Widget_Base {
             [
                 'label' => esc_html__( 'Sub Title', 'mosh-companion' ),
                 'type' => Controls_Manager::TEXT,
+                'label_block' => true
             ]
         );
         $this->add_control(
@@ -63,6 +64,7 @@ class Mosh_Few_Words extends Widget_Base {
             [
                 'label' => esc_html__( 'Title', 'mosh-companion' ),
                 'type'  => Controls_Manager::TEXT,
+                'label_block' => true
             ]
         );
         $this->add_control(
@@ -155,10 +157,6 @@ class Mosh_Few_Words extends Widget_Base {
             'color_title', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .few-words-text .section-heading h2' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .few-words-text .ceo-name h6' => 'color: {{VALUE}};',
@@ -168,7 +166,6 @@ class Mosh_Few_Words extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_title',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .few-words-text .section-heading h2',
             ]
         );
@@ -191,10 +188,6 @@ class Mosh_Few_Words extends Widget_Base {
             'color_subtitle', [
                 'label' => __( 'Sub Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .few-words-text .section-heading p' => 'color: {{VALUE}};',
                 ],
@@ -203,7 +196,6 @@ class Mosh_Few_Words extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_subtitle',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .few-words-text .section-heading p',
             ]
         );
@@ -226,10 +218,6 @@ class Mosh_Few_Words extends Widget_Base {
             'color_text', [
                 'label' => __( 'Text Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .few-words-text p' => 'color: {{VALUE}};',
                 ],
@@ -238,7 +226,6 @@ class Mosh_Few_Words extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_desc',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .few-words-text p',
             ]
         );
@@ -261,10 +248,6 @@ class Mosh_Few_Words extends Widget_Base {
             'color_bg', [
                 'label' => __( 'Background Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .few-words-from-ceo .few-words-contents' => 'background-color: {{VALUE}};',
                 ],

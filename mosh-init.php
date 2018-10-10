@@ -4,7 +4,7 @@ if( !defined( 'WPINC' ) ){
 }
 /**
  * @Packge     : Mosh Companion
- * @Version    : 1.0
+ * @Version    : 1.1
  * @Author     : Colorlib
  * @Author URI : http://colorlib.com/wp/
  *
@@ -19,7 +19,6 @@ require_once MOSH_COMPANION_SW_DIR_PATH. 'instagram.php';
 // Elementor widgets include
 require_once MOSH_COMPANION_INC_DIR_PATH . 'functions.php';
 require_once MOSH_COMPANION_INC_DIR_PATH . 'instagram-api.php';
-require_once MOSH_COMPANION_INC_DIR_PATH . 'shortcode.php';
 require_once MOSH_COMPANION_EW_DIR_PATH . 'elementor-widget.php';
 
 // Demo import include

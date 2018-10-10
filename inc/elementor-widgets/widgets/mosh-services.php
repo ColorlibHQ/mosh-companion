@@ -114,12 +114,9 @@ class Mosh_Services extends Widget_Base {
 
 		$this->add_control(
 			'color_title', [
-				'label' => __( 'Icon Color', 'mosh-companion' ),
-				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
+				'label'     => __( 'Icon Color', 'mosh-companion' ),
+				'type'      => Controls_Manager::COLOR,
+                'default'   => '#4a7aec',
 				'selectors' => [
 					'{{WRAPPER}} .more-service-content .fa' => 'color: {{VALUE}};',
 				],
@@ -171,10 +168,7 @@ class Mosh_Services extends Widget_Base {
             'color_titletwo', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default'   => '#404551',
                 'selectors' => [
                     '{{WRAPPER}} .more-service-content > h4' => 'color: {{VALUE}};',
                 ],
@@ -183,7 +177,6 @@ class Mosh_Services extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_titletwo',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .more-service-content > h4',
             ]
         );
@@ -206,10 +199,7 @@ class Mosh_Services extends Widget_Base {
 			'color_text', [
 				'label' => __( 'Text Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
+                'default'   => '#abadbe',
 				'selectors' => [
 					'{{WRAPPER}} .more-service-content p' => 'color: {{VALUE}};',
 				],
@@ -218,7 +208,6 @@ class Mosh_Services extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'typography_desc',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .more-service-content p',
 			]
 		);

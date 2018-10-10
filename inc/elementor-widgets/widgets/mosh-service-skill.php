@@ -131,12 +131,9 @@ class Mosh_Service_Skill extends Widget_Base {
 
         $this->add_control(
             'color_title', [
-                'label' => __( 'Title Color', 'mosh-companion' ),
-                'type'  => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type'  => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'label'     => __( 'Title Color', 'mosh-companion' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#404551',
                 'selectors' => [
                     '{{WRAPPER}} .service-skills-content .section-heading > h2' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .single-pie-bar h6' => 'color: {{VALUE}};',
@@ -148,10 +145,7 @@ class Mosh_Service_Skill extends Widget_Base {
 			'color_content', [
 				'label' => __( 'Content Color', 'mosh-companion' ),
 				'type'  => Controls_Manager::COLOR,
-				'scheme' => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
+                'default' => '#abadbe',
 				'selectors' => [
                     '{{WRAPPER}} .service-skills-content .section-heading p' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .service-skills-content .skills-text p' => 'color: {{VALUE}};',

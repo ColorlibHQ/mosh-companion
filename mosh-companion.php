@@ -3,7 +3,7 @@
  * Plugin Name:       Mosh Companion
  * Plugin URI:        https://colorlib.com/wp/themes/mosh/
  * Description:       Mosh Companion is a companion for Mosh theme.
- * Version:           1.0
+ * Version:           1.0.1
  * Author:            Colorlib
  * Author URI:        https://colorlib.com/
  * License:           GPL-2.0+
@@ -23,7 +23,7 @@ if( !defined( 'WPINC' ) ){
 
 // Define version constant
 if( !defined( 'MOSH_COMPANION_VERSION' ) ){
-    define( 'MOSH_COMPANION_VERSION', '1.0' );
+    define( 'MOSH_COMPANION_VERSION', '1.1' );
 }
 
 // Define dir path constant

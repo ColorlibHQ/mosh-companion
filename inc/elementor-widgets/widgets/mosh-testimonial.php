@@ -127,10 +127,6 @@ class Mosh_Testimonial extends Widget_Base {
             'color_title', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .mosh-clients-testimonials-area .section-heading h2' => 'color: {{VALUE}};',
                 ],
@@ -139,7 +135,6 @@ class Mosh_Testimonial extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_title',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-clients-testimonials-area .section-heading h2',
             ]
         );
@@ -163,10 +158,7 @@ class Mosh_Testimonial extends Widget_Base {
             'color_subtitle', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#bec0cc',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-clients-testimonials-area .section-heading p' => 'color: {{VALUE}};',
                 ],
@@ -175,7 +167,6 @@ class Mosh_Testimonial extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_subtitle',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-clients-testimonials-area .section-heading p',
             ]
         );
@@ -200,10 +191,6 @@ class Mosh_Testimonial extends Widget_Base {
             'color_contentcolorone', [
                 'label' => __( 'Color for author name, nav and quote.', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .testimonial-content span'   => 'color: {{VALUE}};',
                     '{{WRAPPER}} .testimonials-slides:before' => 'color: {{VALUE}};',
@@ -218,10 +205,6 @@ class Mosh_Testimonial extends Widget_Base {
             'color_contentcolortwo', [
                 'label' => __( 'Color for designation and quote text.', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .testimonial-content p' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .testimonials-meta > p' => 'color: {{VALUE}};',
@@ -233,10 +216,6 @@ class Mosh_Testimonial extends Widget_Base {
             'color_contentcolorthree', [
                 'label' => __( 'Color for inactive author name.', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .single-testimonial-area .testimonials-meta > h6' => 'color: {{VALUE}};',
                 ],

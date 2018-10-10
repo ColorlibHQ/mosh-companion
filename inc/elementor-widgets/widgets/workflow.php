@@ -54,12 +54,14 @@ class Mosh_Workflow extends Widget_Base {
             'wfh_subtitle', [
                 'label' => __( 'Sub Title', 'mosh-companion' ),
                 'type' => Controls_Manager::TEXT,
+                'label_block' => true
             ]
         );
         $this->add_control(
             'wfh_title', [
                 'label' => __( 'Title', 'mosh-companion' ),
                 'type' => Controls_Manager::TEXT,
+                'label_block' => true
             ]
         );
         $this->end_controls_section(); // End section heading content
@@ -126,10 +128,7 @@ class Mosh_Workflow extends Widget_Base {
             'color_shtitle', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#404551',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-workflow-area .section-heading > h2' => 'color: {{VALUE}};',
                 ],
@@ -138,7 +137,6 @@ class Mosh_Workflow extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_shtitle',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-workflow-area .section-heading > h2',
             ]
         );
@@ -162,10 +160,7 @@ class Mosh_Workflow extends Widget_Base {
             'color_shsubtitle', [
                 'label' => __( 'Sub Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#bec0cc',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-workflow-area .section-heading > p' => 'color: {{VALUE}};',
                 ],
@@ -174,7 +169,6 @@ class Mosh_Workflow extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_shsubtitle',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-workflow-area .section-heading > p',
             ]
         );
@@ -197,10 +191,6 @@ class Mosh_Workflow extends Widget_Base {
             'color_wftnumber', [
                 'label' => __( 'Number Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .single-workflow-area > h2' => 'color: {{VALUE}};',
                 ],
@@ -211,10 +201,6 @@ class Mosh_Workflow extends Widget_Base {
             'color_wfthovnumber', [
                 'label' => __( 'Hover Number Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .single-workflow-area:hover h2' => 'color: {{VALUE}};',
                 ],
@@ -225,10 +211,6 @@ class Mosh_Workflow extends Widget_Base {
             'color_wftbgnumber', [
                 'label' => __( 'Number Background Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .single-workflow-area h2' => 'background-color: {{VALUE}};',
                 ],
@@ -239,10 +221,6 @@ class Mosh_Workflow extends Widget_Base {
             'color_wfthovbgnumber', [
                 'label' => __( 'Hover Number Background Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .single-workflow-area:hover h2' => 'background-color: {{VALUE}};',
                 ],
@@ -252,7 +230,6 @@ class Mosh_Workflow extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_wftnumber',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .single-workflow-area > h2',
             ]
         );
@@ -275,10 +252,6 @@ class Mosh_Workflow extends Widget_Base {
             'color_wftitle', [
                 'label'   => __( 'Title Color', 'mosh-companion' ),
                 'type'    => Controls_Manager::COLOR,
-                'scheme'  => [
-                    'type'     => Scheme_Color::get_type(),
-                    'value'    => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .workflow-content h4' => 'color: {{VALUE}};',
                 ],
@@ -287,7 +260,6 @@ class Mosh_Workflow extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name'      => 'typography_wftitle',
-                'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
                 'selector'  => '{{WRAPPER}} .workflow-content h4',
             ]
         );
@@ -310,10 +282,6 @@ class Mosh_Workflow extends Widget_Base {
 			'color_wfdesc', [
 				'label'   => __( 'Description Color', 'mosh-companion' ),
 				'type'    => Controls_Manager::COLOR,
-				'scheme'  => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .workflow-content p' => 'color: {{VALUE}};',
 				],
@@ -322,7 +290,6 @@ class Mosh_Workflow extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name'      => 'typography_wfdesc',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .workflow-content p',
 			]
 		);

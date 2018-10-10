@@ -117,10 +117,7 @@ class Mosh_Clients extends Widget_Base {
 			'color_subtitle', [
 				'label' => __( 'Title Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
+                'default' => '#bec0cc',
 				'selectors' => [
 					'{{WRAPPER}} .mosh-clients-area .section-heading > p' => 'color: {{VALUE}};',
 				],
@@ -129,7 +126,6 @@ class Mosh_Clients extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'typography_subtitle',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .mosh-clients-area .section-heading > p',
 			]
 		);
@@ -153,10 +149,7 @@ class Mosh_Clients extends Widget_Base {
             'color_title', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#404551',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-clients-area .section-heading > h2' => 'color: {{VALUE}};',
                 ],
@@ -165,7 +158,6 @@ class Mosh_Clients extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_title',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-clients-area .section-heading > h2',
             ]
         );
@@ -252,7 +244,7 @@ class Mosh_Clients extends Widget_Base {
                 'label_on' => __( 'Show', 'mosh-companion' ),
                 'label_off' => __( 'Hide', 'mosh-companion' ),
                 'return_value' => 'yes',
-                'default' => 'yes',
+                'default' => '',
             ]
         );
         $this->add_control(

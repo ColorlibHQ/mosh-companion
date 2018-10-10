@@ -132,10 +132,7 @@ class Mosh_Subscribe extends Widget_Base {
 			'color_subtitle', [
 				'label' => __( 'Title Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
+                'default' => '#abadbe',
 				'selectors' => [
 					'{{WRAPPER}} .subscribe-newsletter-content p' => 'color: {{VALUE}};',
 				],
@@ -144,7 +141,6 @@ class Mosh_Subscribe extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'typography_subtitle',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .subscribe-newsletter-content p',
 			]
 		);
@@ -168,10 +164,7 @@ class Mosh_Subscribe extends Widget_Base {
             'color_title', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#404551',
                 'selectors' => [
                     '{{WRAPPER}} .subscribe-newsletter-content h2' => 'color: {{VALUE}};',
                 ],
@@ -180,7 +173,6 @@ class Mosh_Subscribe extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_title',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .subscribe-newsletter-content h2',
             ]
         );
@@ -259,6 +251,7 @@ class Mosh_Subscribe extends Widget_Base {
             'subsc_ov_bg_color', [
                 'label'     => esc_html__('Overlay Color', 'mosh-companion'),
                 'type'      => Controls_Manager::COLOR,
+                'default'   => 'rgba(232,232,232,0.81)',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-subscribe-newsletter-area.bg-overlay:after' => 'background-color: {{VALUE}};',
                 ],
