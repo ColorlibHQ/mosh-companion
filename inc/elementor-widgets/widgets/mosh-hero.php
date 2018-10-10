@@ -133,10 +133,6 @@ class Mosh_Hero extends Widget_Base {
 			'color_suffix', [
 				'label' => __( 'Text Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .hero-slide-content h4' => 'color: {{VALUE}};',
 				],
@@ -145,7 +141,6 @@ class Mosh_Hero extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'typography_suffix',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .hero-slide-content h4',
 			]
 		);

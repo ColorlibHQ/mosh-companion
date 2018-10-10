@@ -171,10 +171,6 @@ class Mosh_Servicesvtwo extends Widget_Base {
 			'color_title', [
 				'label' => __( 'Icon Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .feature-icon .fa' => 'color: {{VALUE}};',
 				],
@@ -226,10 +222,6 @@ class Mosh_Servicesvtwo extends Widget_Base {
             'color_titletwo', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .feature-content > h4' => 'color: {{VALUE}};',
                 ],
@@ -238,7 +230,6 @@ class Mosh_Servicesvtwo extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_titletwo',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .feature-content > h4',
             ]
         );
@@ -261,10 +252,6 @@ class Mosh_Servicesvtwo extends Widget_Base {
 			'color_text', [
 				'label' => __( 'Text Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .feature-content p' => 'color: {{VALUE}};',
 				],
@@ -273,7 +260,6 @@ class Mosh_Servicesvtwo extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'typography_desc',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .feature-content p',
 			]
 		);
@@ -296,10 +282,6 @@ class Mosh_Servicesvtwo extends Widget_Base {
             'color_btntext', [
                 'label' => __( 'Button Text Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .mosh--services-area a.mosh-btn' => 'color: {{VALUE}};',
                 ],
@@ -309,10 +291,6 @@ class Mosh_Servicesvtwo extends Widget_Base {
             'color_btnhovtext', [
                 'label' => __( 'Button Hover Text Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .mosh--services-area a.mosh-btn:hover' => 'color: {{VALUE}};',
                 ],
@@ -322,10 +300,6 @@ class Mosh_Servicesvtwo extends Widget_Base {
             'color_btnbg', [
                 'label' => __( 'Button background Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .mosh--services-area a.mosh-btn' => 'background-color: {{VALUE}};',
                 ],
@@ -335,10 +309,6 @@ class Mosh_Servicesvtwo extends Widget_Base {
             'color_btnhovbg', [
                 'label' => __( 'Button Hover background Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .mosh--services-area a.mosh-btn:hover' => 'background-color: {{VALUE}};',
                 ],
@@ -347,7 +317,6 @@ class Mosh_Servicesvtwo extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_btn',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh--services-area a.mosh-btn',
             ]
         );

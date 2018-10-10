@@ -116,10 +116,6 @@ class Mosh_Services_Slider extends Widget_Base {
             'color_title', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .single-service-area h2' => 'color: {{VALUE}};',
                 ],
@@ -129,10 +125,6 @@ class Mosh_Services_Slider extends Widget_Base {
 			'color_titlehover', [
 				'label' => __( 'Title hover and active Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
                     '{{WRAPPER}} .mosh-service-slides .center .single-service-area h2' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .single-service-area:hover h2' => 'color: {{VALUE}};',
@@ -142,7 +134,6 @@ class Mosh_Services_Slider extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'typography_title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .single-service-area h2',
 			]
 		);
@@ -166,10 +157,6 @@ class Mosh_Services_Slider extends Widget_Base {
             'color_titletwo', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .single-service-area h4' => 'color: {{VALUE}};',
                 ],
@@ -178,7 +165,6 @@ class Mosh_Services_Slider extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_titletwo',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .single-service-area h4',
             ]
         );
@@ -201,10 +187,6 @@ class Mosh_Services_Slider extends Widget_Base {
 			'color_text', [
 				'label' => __( 'Text Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .single-service-area p' => 'color: {{VALUE}};',
 				],
@@ -213,7 +195,6 @@ class Mosh_Services_Slider extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'typography_desc',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .single-service-area p',
 			]
 		);
@@ -236,10 +217,7 @@ class Mosh_Services_Slider extends Widget_Base {
             'color_btntext', [
                 'label' => __( 'Button Text Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_2,
-                ],
+                'default' => '#fff',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-service-area a.mosh-btn' => 'color: {{VALUE}};',
                 ],
@@ -249,10 +227,7 @@ class Mosh_Services_Slider extends Widget_Base {
             'color_btnhovtext', [
                 'label' => __( 'Button Hover Text Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_2,
-                ],
+                'default' => '#fff',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-service-area a.mosh-btn:hover' => 'color: {{VALUE}};',
                 ],
@@ -261,11 +236,8 @@ class Mosh_Services_Slider extends Widget_Base {
         $this->add_control(
             'color_btnbg', [
                 'label' => __( 'Button background Color', 'mosh-companion' ),
-                'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'type'  => Controls_Manager::COLOR,
+                'default' => '#4a7aec',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-service-area a.mosh-btn' => 'background-color: {{VALUE}};',
                 ],
@@ -275,10 +247,7 @@ class Mosh_Services_Slider extends Widget_Base {
             'color_btnhovbg', [
                 'label' => __( 'Button Hover background Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#1a3c8d',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-service-area a.mosh-btn:hover' => 'background-color: {{VALUE}};',
                 ],
@@ -287,7 +256,6 @@ class Mosh_Services_Slider extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_btn',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-service-area a.mosh-btn',
             ]
         );

@@ -154,10 +154,6 @@ class Mosh_Team_Member extends Widget_Base {
 			'color_title', [
 				'label' => __( 'Title Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .mosh-team-area .section-heading h2' => 'color: {{VALUE}};',
 				],
@@ -166,7 +162,6 @@ class Mosh_Team_Member extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'typography_title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .mosh-team-area .section-heading h2',
 			]
 		);
@@ -190,10 +185,6 @@ class Mosh_Team_Member extends Widget_Base {
             'color_subtitle', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .mosh-team-area .section-heading p' => 'color: {{VALUE}};',
                 ],
@@ -202,7 +193,6 @@ class Mosh_Team_Member extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_subtitle',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-team-area .section-heading p',
             ]
         );
@@ -225,10 +215,6 @@ class Mosh_Team_Member extends Widget_Base {
             'color_shortdesc', [
                 'label' => __( 'Text Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .mosh-team-area .section-heading h5' => 'color: {{VALUE}};',
                 ],
@@ -237,7 +223,6 @@ class Mosh_Team_Member extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_shortdesc',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-team-area .section-heading h5',
             ]
         );
@@ -268,10 +253,6 @@ class Mosh_Team_Member extends Widget_Base {
             'color_imghov', [
                 'label' => __( 'Image Hover Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .team-thumbnail:after' => 'background-color: {{VALUE}};',
                 ],
@@ -290,10 +271,6 @@ class Mosh_Team_Member extends Widget_Base {
             'color_name', [
                 'label' => __( 'Name Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .team-meta-info h4' => 'color: {{VALUE}};',
                 ],
@@ -302,7 +279,6 @@ class Mosh_Team_Member extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_name',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .team-meta-info h4',
             ]
         );
@@ -319,10 +295,6 @@ class Mosh_Team_Member extends Widget_Base {
             'color_desigopt', [
                 'label' => __( 'Designation Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .team-meta-info span' => 'color: {{VALUE}};',
                 ],
@@ -332,10 +304,6 @@ class Mosh_Team_Member extends Widget_Base {
             'color_desighovopt', [
                 'label' => __( 'Designation Hover Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .single-team-slide:hover .team-meta-info span' => 'color: {{VALUE}};',
                 ],
@@ -344,7 +312,6 @@ class Mosh_Team_Member extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_desigopt',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .team-meta-info span',
             ]
         );
@@ -362,10 +329,6 @@ class Mosh_Team_Member extends Widget_Base {
             'color_discopt', [
                 'label' => __( 'Description Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .team-meta-info p' => 'color: {{VALUE}};',
                 ],
@@ -374,7 +337,6 @@ class Mosh_Team_Member extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_discopt',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .team-meta-info p',
             ]
         );
@@ -392,10 +354,6 @@ class Mosh_Team_Member extends Widget_Base {
             'color_iconopt', [
                 'label' => __( 'Icon Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .team-social-info > a' => 'color: {{VALUE}};',
                 ],
@@ -405,10 +363,6 @@ class Mosh_Team_Member extends Widget_Base {
 			'color_iconhovopt', [
 				'label' => __( 'Icon Hover Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .team-social-info > a:hover' => 'color: {{VALUE}};',
 				],

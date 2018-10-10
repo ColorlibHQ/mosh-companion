@@ -56,6 +56,7 @@ class Mosh_About_Us extends Widget_Base {
             [
                 'label' => esc_html__( 'Sub Title', 'mosh-companion' ),
                 'type' => Controls_Manager::TEXT,
+                'label_block' => true
             ]
         );
         $this->add_control(
@@ -63,6 +64,7 @@ class Mosh_About_Us extends Widget_Base {
             [
                 'label' => esc_html__( 'Title', 'mosh-companion' ),
                 'type'  => Controls_Manager::TEXT,
+                'label_block' => true
             ]
         );
         $this->add_control(
@@ -171,10 +173,7 @@ class Mosh_About_Us extends Widget_Base {
             'color_title', [
                 'label' => __( 'Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#404551',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-about-us-content .section-heading > h2' => 'color: {{VALUE}};',
                 ],
@@ -183,7 +182,6 @@ class Mosh_About_Us extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_title',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-about-us-content .section-heading > h2',
             ]
         );
@@ -206,10 +204,7 @@ class Mosh_About_Us extends Widget_Base {
             'color_subtitle', [
                 'label' => __( 'Sub Title Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#bec0cc',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-about-us-content .section-heading > p' => 'color: {{VALUE}};',
                 ],
@@ -218,7 +213,6 @@ class Mosh_About_Us extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_subtitle',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-about-us-content .section-heading > p',
             ]
         );
@@ -241,10 +235,7 @@ class Mosh_About_Us extends Widget_Base {
 			'color_text', [
 				'label' => __( 'Text Color', 'mosh-companion' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
+                'default' => '#abadbe',
 				'selectors' => [
 					'{{WRAPPER}} .mosh-about-us-content p' => 'color: {{VALUE}};',
 				],
@@ -253,7 +244,6 @@ class Mosh_About_Us extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'typography_desc',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .mosh-about-us-content p',
 			]
 		);
@@ -276,10 +266,7 @@ class Mosh_About_Us extends Widget_Base {
             'color_btntext', [
                 'label' => __( 'Button Text Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#fff',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-about-us-content a.mosh-btn' => 'color: {{VALUE}};',
                 ],
@@ -289,10 +276,7 @@ class Mosh_About_Us extends Widget_Base {
             'color_btnhovtext', [
                 'label' => __( 'Button Hover Text Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#fff',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-about-us-content a.mosh-btn:hover' => 'color: {{VALUE}};',
                 ],
@@ -302,10 +286,7 @@ class Mosh_About_Us extends Widget_Base {
             'color_btnbg', [
                 'label' => __( 'Button background Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#4a7aec',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-about-us-content a.mosh-btn' => 'background-color: {{VALUE}};',
                 ],
@@ -315,10 +296,7 @@ class Mosh_About_Us extends Widget_Base {
             'color_btnhovbg', [
                 'label' => __( 'Button Hover background Color', 'mosh-companion' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
+                'default' => '#1a3c8d',
                 'selectors' => [
                     '{{WRAPPER}} .mosh-about-us-content a.mosh-btn:hover' => 'background-color: {{VALUE}};',
                 ],
@@ -327,7 +305,6 @@ class Mosh_About_Us extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography_btn',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .mosh-about-us-content a.mosh-btn',
             ]
         );
