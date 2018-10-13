@@ -51,6 +51,7 @@ class Mosh_Portfolio extends Widget_Base {
                 'label' => __( 'Portfolio Settings', 'mosh-companion' ),
             ]
         );
+
         $this->add_control(
             'subtitle',
             [
@@ -60,6 +61,7 @@ class Mosh_Portfolio extends Widget_Base {
                 'default' => esc_html__( 'OUR WORK', 'mosh-companion' )
             ]
         );
+
         $this->add_control(
             'title',
             [
@@ -87,6 +89,7 @@ class Mosh_Portfolio extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
             'padding_bottom',
             [
@@ -104,6 +107,24 @@ class Mosh_Portfolio extends Widget_Base {
                 ],
             ]
         );
+
+        $this->add_control(
+            'itemsnumber',
+            [
+                'label' => esc_html__( 'Items per section', 'mosh-companion' ),
+                'type' => Controls_Manager::NUMBER,
+                'label_block' => true
+            ]
+        );
+
+        $this->add_control(
+            'loadbtnswitch',
+            [
+                'label' => esc_html__( 'Load More Button', 'mosh-companion' ),
+                'type' => Controls_Manager::SWITCHER,
+            ]
+        );
+
         $this->end_controls_section(); // End portfolio settings
 
 
@@ -118,12 +139,18 @@ class Mosh_Portfolio extends Widget_Base {
 
         $this->add_control(
             'portfolios_rept', [
-                'label'         => __( 'portfolios', 'mosh-companion' ),
+                'label'         => __( 'Create Portfolios', 'mosh-companion' ),
                 'type'          => Controls_Manager::REPEATER,
                 'title_field'   => '{{{ label }}}',
                 'fields' => [
                     [
                         'name'        => 'label',
+                        'label'       => __( 'Tag', 'mosh-companion' ),
+                        'type'        => Controls_Manager::TEXT,
+                        'default'     => esc_html__( 'Web Template', 'mosh-companion' )
+                    ],
+                    [
+                        'name'        => 'title',
                         'label'       => __( 'Title', 'mosh-companion' ),
                         'type'        => Controls_Manager::TEXT,
                         'label_block' => true,
@@ -273,23 +300,71 @@ class Mosh_Portfolio extends Widget_Base {
             $wrpclass .= ' '.$settings['padding_top'];
         }
 
+        // Assign portfolios items in variable 
+
+        $portfoliosItems = $settings['portfolios_rept']; 
+
+        // Total items count
+        $totalItems = count( $portfoliosItems );
+
+        // localize
+        wp_localize_script(
+            'mosh-companion-script',
+            'portfolioloadajax',
+            array(
+                'action_url' => admin_url( 'admin-ajax.php' ),
+                'postNumber' => esc_html( $settings['itemsnumber'] ),
+                'elsettings' => $portfoliosItems,
+                'totalitems' => $totalItems
+            )
+        );
+
+
         ?>
 
         <section class="mosh-portfolio-area clearfix <?php echo esc_attr( $wrpclass ); ?>">
             <?php 
             // Section heading
             mosh_section_heading( $title, $subtitle );
-        
+
+            // Filter
+            if( is_array( $portfoliosItems ) && $totalItems > 0 ):
+            ?>
+            <div class="mosh-projects-menu">
+                <div class="text-center portfolio-menu">
+                    <p class="active" data-filter="*"><?php esc_html_e( 'All', 'mosh-companion' ) ?></p>
+                    <?php 
+                    $tags = array_column( $portfoliosItems, 'label' );
+
+                    $getTags = array_unique( $tags );
+
+                    $tabs = '';
+                    foreach( $getTags as $tag ) {
+
+                        $tagforfilter = sanitize_title_with_dashes( $tag );
+
+                        $tabs .= '<p data-filter=".'.esc_attr( $tagforfilter ).'">'.esc_html( $tag ).'</p>';
+                    }
+
+                    echo $tabs;
+                    ?>
+                </div>
+            </div>
+            <?php
+            endif;
             ?>
 
             <div class="mosh-portfolio">
 
                 <?php 
-                if( !empty( $settings['portfolios_rept'] ) ):
-                    foreach( $settings['portfolios_rept'] as $val ):
+                if( !empty( $portfoliosItems ) ):
+                    $i = 0;
+                    foreach( $portfoliosItems as $val ):
 
+                    $tagclass = sanitize_title_with_dashes( $val['label'] );
+                    $i++;
                 ?>
-                <div class="single_gallery_item">
+                <div class="single_gallery_item <?php echo esc_attr( $tagclass ); ?>">
                     <?php 
                     if( !empty( $val['img']['url'] ) ){
                         echo '<img src="'.esc_url( $val['img']['url'] ).'" />';
@@ -298,18 +373,18 @@ class Mosh_Portfolio extends Widget_Base {
                     <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">
                         <div class="port-hover-text text-center">
                             <?php 
-                            if( !empty( $val['label'] ) ){
+                            if( !empty( $val['title'] ) ){
                                 echo mosh_heading_tag(
                                     array(
                                         'tag'  => 'h4',
-                                        'text' => esc_html( $val['label'] )
+                                        'text' => esc_html( $val['title'] )
                                     )
                                 );
                             }
                             ?>
                             
                             <?php 
-                            if( $val['sub-title-url'] &&  $val['sub-title'] ){
+                            if( !empty( $val['sub-title-url'] ) &&  !empty( $val['sub-title'] ) ){
                                 echo '<a href="'.esc_url( $val['sub-title-url'] ).'">'.esc_html( $val['sub-title'] ).'</a>';
                             }else{
                                 echo '<p>'.esc_html( $val['sub-title'] ).'</p>';
@@ -320,12 +395,30 @@ class Mosh_Portfolio extends Widget_Base {
                     </div>
                 </div>
                 <?php 
+
+                if( !empty( $settings['itemsnumber'] ) ){
+
+                    if( $i == $settings['itemsnumber'] ){
+                        break;
+                    }
+                }
                     endforeach;
                 endif;
                 ?>
-            </div>
-        </section>
 
+                <div class="mosh-portfolio-load"></div>
+
+            </div>
+            <?php 
+            if( !empty( $settings['loadbtnswitch'] ) && $totalItems > $settings['itemsnumber']  ):
+            ?>
+            <div class="col-12 text-center mt-100">
+                <a href="#" class="btn loadAjax mosh-btn"><?php esc_html_e( 'Load More', 'mosh-companion' ); ?></a>
+            </div>
+            <?php 
+            endif;
+            ?>
+        </section>
 
         <?php
 
