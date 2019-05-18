@@ -35,7 +35,7 @@ If you are new to WordPress but are dedicated to <a href="https://colorlib.com/w
 
 This section describes how to install the plugin and get it working.
 
-1. Upload the whole contents of the folder `shapely-companion` to the `/wp-content/plugins/` directory
+1. Upload the whole contents of the folder `mosh-companion` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress dashboard
 3. Enjoy using it :)
 
