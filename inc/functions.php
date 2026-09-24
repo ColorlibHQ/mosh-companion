@@ -40,7 +40,7 @@ function mosh_section_heading( $title = '', $subtitle = '' ) {
 add_action( 'wp_enqueue_scripts', 'mosh_companion_frontend_scripts', 99 );
 function mosh_companion_frontend_scripts() {
 
-	wp_enqueue_script( 'mosh-companion-script', plugins_url( '../js/loadmore-ajax.js', __FILE__ ), array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'mosh-companion-script', plugins_url( '../js/loadmore-ajax.js', __FILE__ ), array( 'masonry', 'mosh-ui-js' ), '1.0-s2', true );
 
 }
 // 

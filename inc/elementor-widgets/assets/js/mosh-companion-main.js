@@ -1,8 +1,21 @@
-(function ($) {
+/**
+ * Mosh Companion widgets, front end, without jQuery: carousels, skill bars,
+ * the filterable portfolio, scroll-to-top, counters, YouTube backgrounds and
+ * the Mailchimp field map. The plugins come from the theme's ColorlibUI
+ * (drop-in Owl Carousel, Barfiller, Isotope, imagesLoaded, ScrollUp and
+ * YouTube background with the same options and markup).
+ */
+(function () {
     'use strict';
 
-    if ($.fn.owlCarousel) {
-        $(".hero-slides").owlCarousel({
+    function run() {
+        var UI = window.ColorlibUI;
+        if (!UI) return;
+
+        // This plugin shipped Owl Carousel 2.2.1, whose arrows and dots are <div>s.
+        if (UI.owl && UI.owl.defaults) UI.owl.defaults.markup = '2.2';
+
+        UI.owl('.hero-slides', {
             items: 1,
             loop: true,
             autoplay: true,
@@ -12,10 +25,8 @@
             nav: true,
             navText: ['<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>', '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>']
         });
-    }
 
-    if ($.fn.owlCarousel) {
-        $(".mosh-service-slides").owlCarousel({
+        UI.owl('.mosh-service-slides', {
             items: 3,
             loop: true,
             autoplay: true,
@@ -38,10 +49,8 @@
                 }
             }
         });
-    }
 
-    if ($.fn.owlCarousel) {
-        $(".mosh-workflow-slides").owlCarousel({
+        UI.owl('.mosh-workflow-slides', {
             items: 3,
             loop: true,
             autoplay: true,
@@ -62,10 +71,8 @@
                 }
             }
         });
-    }
 
-    if ($.fn.owlCarousel) {
-        $(".mosh-team-slides").owlCarousel({
+        UI.owl('.mosh-team-slides', {
             items: 3,
             loop: true,
             autoplay: true,
@@ -86,10 +93,8 @@
                 }
             }
         });
-    }
 
-    if ($.fn.owlCarousel) {
-        $(".testimonials-slides").owlCarousel({
+        UI.owl('.testimonials-slides', {
             items: 3,
             loop: true,
             autoplay: true,
@@ -110,98 +115,93 @@
                 }
             }
         });
-    }
 
-    if ($.fn.barfiller) {
+        UI.toElements('.bar').forEach(function (bar) {
+            // As $this.data('color'): undefined (the default colour) when absent.
+            var color = bar.hasAttribute('data-color') ? bar.getAttribute('data-color') : undefined;
 
-        $('.bar').each(  function(){
-            var $this = $(this),
-                $color = $this.data('color');
-                 
-            $this.barfiller({
+            UI.barfiller(bar, {
                 tooltip: true,
                 duration: 1000,
-                barColor: $color,
+                barColor: color,
                 animateOnResize: true
             });
+        });
 
-
-        })
-
-    }
-    if ($.fn.imagesLoaded) {
-        $('.mosh-portfolio').imagesLoaded(function () {
-            // filter items on button click
-            $('.portfolio-menu').on('click', 'p', function () {
-                var filterValue = $(this).attr('data-filter');
-                $grid.isotope({
-                    filter: filterValue
+        // Only where there is a portfolio: UI.imagesLoaded and UI.isotope need
+        // WordPress core imagesLoaded / Masonry and warn when they are missing.
+        if (document.querySelector('.mosh-portfolio')) {
+            UI.imagesLoaded('.mosh-portfolio', function () {
+                // init Isotope
+                var grids = UI.isotope('.mosh-portfolio', {
+                    itemSelector: '.single_gallery_item',
+                    percentPosition: true,
+                    masonry: {
+                        columnWidth: '.single_gallery_item'
+                    }
+                });
+                // filter items on button click
+                UI.toElements('.portfolio-menu').forEach(function (menu) {
+                    menu.addEventListener('click', function (e) {
+                        var item = e.target.closest('p');
+                        if (!item || !menu.contains(item)) return;
+                        var filterValue = item.getAttribute('data-filter');
+                        grids.forEach(function (grid) {
+                            grid.arrange({
+                                filter: filterValue
+                            });
+                        });
+                    });
                 });
             });
-            // init Isotope
-            var $grid = $('.mosh-portfolio').isotope({
-                itemSelector: '.single_gallery_item',
-                percentPosition: true,
-                masonry: {
-                    columnWidth: '.single_gallery_item'
-                }
+        }
+
+        UI.toElements('.portfolio-menu button.btn').forEach(function (button) {
+            button.addEventListener('click', function () {
+                UI.toElements('.portfolio-menu button.btn').forEach(function (b) {
+                    b.classList.remove('active');
+                });
+                button.classList.add('active');
             });
         });
-    }
 
-    $('.portfolio-menu button.btn').on('click', function () {
-        $('.portfolio-menu button.btn').removeClass('active');
-        $(this).addClass('active');
-    })
-    if ($.fn.scrollUp) {
-        $.scrollUp({
+        UI.scrollUp({
             scrollSpeed: 1500,
             scrollText: '<i class="fa-solid fa-angle-up"></i>'
         });
-    }
 
-    (function startCounters() {
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', startCounters);
-            return;
-        }
-        if (window.ColorlibUI) {
-            window.ColorlibUI.counter('.counter', { time: 2000 });
-        }
-    })();
+        UI.counter('.counter', { time: 2000 });
 
-    // Background video
-    var $selector = $('[data-videoid]');
-
-    if( $selector.length ){
-        $selector.each( function(){
-            var $this = $(this);
-            $this.YTPlayer({
+        // Background video
+        UI.toElements('[data-videoid]').forEach(function (el) {
+            UI.youtubeBackground(el, {
                 fitToBackground: true,
-                videoId: $this.data('videoid')
+                videoId: el.getAttribute('data-videoid')
             });
         });
+
+        // MC Scripts
+        if (document.querySelector('.mosh-subscribe-newsletter-area')) {
+            window.fnames = new Array();
+            window.ftypes = new Array();
+            fnames[0] = 'EMAIL';
+            ftypes[0] = 'email';
+            fnames[1] = 'FNAME';
+            ftypes[1] = 'text';
+            fnames[2] = 'LNAME';
+            ftypes[2] = 'text';
+            fnames[3] = 'ADDRESS';
+            ftypes[3] = 'address';
+            fnames[4] = 'PHONE';
+            ftypes[4] = 'phone';
+            fnames[5] = 'BIRTHDAY';
+            ftypes[5] = 'birthday';
+        }
     }
-    
-    // MC Scripts
-    var $subscribe = $( '.mosh-subscribe-newsletter-area' );
-    if( $subscribe.length ){
-        window.fnames = new Array();
-        window.ftypes = new Array();
-        fnames[0]='EMAIL';
-        ftypes[0]='email';
-        fnames[1]='FNAME';
-        ftypes[1]='text';
-        fnames[2]='LNAME';
-        ftypes[2]='text';
-        fnames[3]='ADDRESS';
-        ftypes[3]='address';
-        fnames[4]='PHONE';
-        ftypes[4]='phone';
-        fnames[5]='BIRTHDAY';
-        ftypes[5]='birthday';
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run);
+    } else {
+        run();
     }
-
-
-
-})(jQuery);
+}());
