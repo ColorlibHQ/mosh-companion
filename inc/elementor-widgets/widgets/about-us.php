@@ -132,15 +132,15 @@ class Mosh_About_Us extends Widget_Base {
                 'options' => [
                     'left' => [
                         'title' => __( 'Left', 'mosh-companion' ),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __( 'Center', 'mosh-companion' ),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => __( 'Right', 'mosh-companion' ),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => 'left',
